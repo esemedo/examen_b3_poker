@@ -3,7 +3,6 @@ type ObjectCard = {name: string, point: number, returned: boolean}
 type CardProps = {
     card:ObjectCard, 
     index: number, 
-    turn: boolean,
      updateCards : (index : number)=> void,
 }
 type CardContext = {

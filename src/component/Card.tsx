@@ -6,7 +6,7 @@ import heart from '../assets/coeur.webp'
 import diamonds from '../assets/diamonds.jpg'
 import trefle from '../assets/trefle.png'
 
-const Card : FC<CardProps>= ({card, index, turn,  updateCards}) => {
+const Card : FC<CardProps>= ({card, index,  updateCards}) => {
     const [activeCard, setActiveCard] = React.useState(false)
     const {rotateCard  }= useContext(gameContext)
     const tabImage : Record<string, string> = {carreau: diamonds, coeur: heart, "trèfle": trefle, pique: pique}

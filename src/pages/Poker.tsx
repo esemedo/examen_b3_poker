@@ -18,6 +18,7 @@ const Poker = () => {
     // const [continueGame , setContinueGame] = React.useState<boolean>(false)
     React.useEffect(()=>{
         const cards : ObjectCard[]= generateCard()
+        
         setCards(cards)
         return ()=>{
             setOpenScore(false)
@@ -48,14 +49,14 @@ const Poker = () => {
         setStartGame(true)
     }
     const endGame = ()=>{
+        // setCards([])
         setStartGame(false)
-        setRestartGame(true)
+        setRestartGame(!restartGame)
         setOpenScore(false)
         setRotateCard(false)
         setRound(1)
         setPlayer([])
         setIa([])
-        setCards([])
     }
     const cartTurn = ()=>{
         setRotateCard(true)
@@ -72,7 +73,7 @@ const Poker = () => {
         setPlayer([...newTab])
       }
     return (
-        <GameProvider value={{ rotateCard, endGame}}>
+        <GameProvider value={{ rotateCard, endGame, setRotateCard}}>
         <CardsProvider value={{cards, player, ia, setPlayer, setIa }}>
             <div className='h-full flex flex-col items-center'>
                 <h1 className='text-[2rem] font-bold'>Jeu de poker</h1>  
@@ -86,11 +87,10 @@ const Poker = () => {
                     {startGame ? 
                         <>
                             <div className='flex items-center'>{ia.map((card: ObjectCard, index: number) => { 
-                                return<Card key={index} card={card} updateCards={updateIa}index={index} turn={rotateCard} />
+                                return<Card key={index} card={card} updateCards={updateIa}index={index}  />
                             })}</div>
-                            {/* <div className='flex items-center'>{cards.map((card: ObjectCard, index: number) => <Card key={index} card={card} index={index} turn={rotateCard} />)}</div> */}
                             <div className='flex items-center'>{player.map((card: ObjectCard, index: number) => 
-                                <Card key={index} card={card}  updateCards={updatePlayer} index={index} turn={rotateCard} />)}</div>
+                                <Card key={index} card={card}  updateCards={updatePlayer} index={index}  />)}</div>
                         </>
                     :  
                      
