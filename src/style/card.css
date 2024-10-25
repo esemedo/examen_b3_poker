@@ -1,0 +1,19 @@
+.card-perspective {
+    perspective: 1000px;
+}
+
+.card-inner-transform{
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card-visibility {
+    backface-visibility: hidden;
+}
+.card-rotateY , .card-perspective:hover .card-inner{
+    transform: rotateY(180deg);
+}
+.bg-card{
+    background:  url(../assets/bg-card.jpg);
+    background-size: cover;
+}

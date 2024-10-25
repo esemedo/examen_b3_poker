@@ -1,0 +1,1 @@
+export const TABLE_SCORE ={1:"la carte la plus haute" ,2: "une paire", 4:"un double Paire", 6:"un brelan", 8: "un carré" }

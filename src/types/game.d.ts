@@ -1,0 +1,1 @@
+type GameContext = {rotateCard: boolean, endGame : ()=> void}
